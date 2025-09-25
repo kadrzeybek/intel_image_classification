@@ -40,9 +40,9 @@ Bu projenin amacı bir CNN yapay zeka modeli oluturarak bu modeli Intel Image Cl
 - Train için **11230** adet görsel kullanılmıştır.
 - Validation için **2804** adet görsel kullanılmıştır.
 - Test için **3000** adet görsel kullanılmıştır.
-- Model 17. epochta eraly stop devreye girmesiyle durdu.
-- Modelin **Validation Accuracy:** 82.81
-- Modelin **Test Accurary:** 82.40
+- Yüksek epoch sayısı veridğimde belirli bir yerde early stop sayesinde durdu.
+- Modelin en yüksek **Validation Accuracy:** 83.10
+- Modelin en yüksek **Test Accurary:** 82.40
 - Train ve Validation Loss grafiğine baktğimizde modelin 10-12. epochta en iyi durumda olduğnu görüyoruz. Sonrasında validation loss artıyor ve overfitting başlıyor.
 - Train ve Validation Loss grafiğine baktğimizde modelin 10-11. epochta en iyi durumda olduğnu görüyoruz.
 - Farklı bach size ve learning rate denemelerinde **En iyi kombinasyon:** learning rate = 0.1, batch size= 64
