@@ -1,0 +1,47 @@
+# CNN Model and Intel Image Classification Dataset
+
+## Projenin Linki
+
+
+## Projenin Amacı
+Bu projenin amacı bir CNN yapay zeka modeli oluturarak bu modeli Intel Image Classification veri setinini ile eğitmek ve model hakkında değerlendirmeler yapmaktır.
+
+## Veri Seti
+- **Kaynak:** [Intel Image Classification Dataset](https://www.kaggle.com/datasets/puneet6060/intel-image-classification)
+- **Dataset Türü:** Multiclass Image Classification (6 sınıf)
+- **Sınıflar:** Buildings, Forest, Glacier, Mountain, Sea, Street
+
+## Kullanılan Yöntemler
+- **Model:** Convolution Neural Network (CNN)
+  - Birden fazla **Conv2D ve MaxPooling** katmanı
+  - **Dense (Fully Connected)** katmanlar
+  - **Dropout** ile overfitting önleme
+- **Ön İşleme**
+  - Piksel değerlerini 0–1 aralığına normalize etme (normalization)
+  - Veri artırma (Augmentation)
+- **Optimizasyon**
+  - Adam Optimizer
+  - Loss : Sparse Categoritical Crossentropy
+  - Metric: Accurary
+  - **Early Stopping** ile aşırı öğrenme engelleme
+  - **Hipermetre Optimizasyonu:** farklı learning rate ve bach size'lar ile test edilmesi
+- **Modelin Açıklanabilirliğ:**
+    - **Eigen-CAM** yöntemi ile modelin hangi bölgeler dikkat ettiğini gösterme
+
+## Elde Edilen Sonuçlar
+- Eğitim ve doğrulama seti üzerinde yüksek doğruluk oranı elde edilmiştir.  
+- **Classification Report** ve **Confusion Matrix** ile sınıf bazlı performans analiz edilmiştir. 
+- **Eigen-CAM görselleştirmeleri**, modelin doğru tahminlerde gerçekten ilgili bölgelere odaklandığını göstermektedir.  
+- Hiperparametre optimizasyonu sonucunda:
+  - En iyi **Learning Rate** ve **Batch Size** kombinasyonu belirlenmiştir.
+ 
+## Çıktılar
+- Train için **11230** adet görsel kullanılmıştır.
+- Validation için **2804** adet görsel kullanılmıştır.
+- Test için **3000** adet görsel kullanılmıştır.
+- Model 17. epochta eraly stop durdu.
+- Modelin **Validation Accuracy:** 82.81
+- Modelin **Test Accurary:** 82.40
+- Train ve Validation Loss grafiğine baktğimizde modelin 10-12. epochta en iyi durumda olduğnu görüyoruz. Sonrasında validation loss artıyor ve overfitting başlıyor.
+- Train ve Validation Loss grafiğine baktğimizde modelin 10-11. epochta en iyi durumda olduğnu görüyoruz.
+- Farklı bach size ve learning rate denemelerinde **En iyi kombinasyon:** learning rate = 0.1, batch size= 64
